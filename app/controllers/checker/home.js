@@ -1,7 +1,13 @@
 
-const hello = () => async (ctx, next) => {
-  ctx.response.body = '<h1>Hello World</h1>';
+
+const index = () => async (ctx, next) => {
+  ctx.response.body = '<h1>Index</h1>';
   await next();
 };
 
-module.exports = { hello };
+const hello = () => async (ctx, next) => {
+  ctx.response.body = `<h1>Hello ${ctx.params.name}</h1>`;
+  await next();
+};
+
+module.exports = { index, hello };
