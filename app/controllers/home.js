@@ -1,6 +1,9 @@
-const index = async (ctx, next) => {
-  ctx.response.body = '<h1>Hello World</h1>';
-  await next();
-};
+const checker = require('./checker');
+
+
+const index = [
+  checker.user.login(),
+  checker.home.hello(),
+];
 
 module.exports = { index };

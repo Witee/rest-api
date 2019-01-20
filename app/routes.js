@@ -1,6 +1,10 @@
 const router = require('koa-router')();
-const home = require('./controllers/home');
+const compose = require('koa-compose');
+const { getModules } = require('./libs/utils');
+const controllers = getModules(`${__dirname}/controllers`);
 
-router.get('/hello', home.index);
+router.get('/hello', compose(controllers.home.index));
+
+router.get('/login', compose(controllers.user.login));
 
 module.exports = router;

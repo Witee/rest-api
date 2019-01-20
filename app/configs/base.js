@@ -5,6 +5,15 @@
 module.exports = {
   service: {
     port: 9988,
+    listen: '0.0.0.0',
+  },
+
+  /**
+    允许访问 api 的 ip，及 ip 允许访问的方法
+     * 号表示允许所有
+  */
+  allowedRequests: {
+    '127.0.0.1': '*',
   },
 
   dateFormat: 'YYYY-MM-DD',
