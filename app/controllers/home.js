@@ -1,4 +1,4 @@
-const checker = require('./checker');
+import checker from './checker';
 
 
 const index = [
@@ -10,4 +10,4 @@ const hello = [
   checker.home.hello(),
 ];
 
-module.exports = { index, hello };
+export { index, hello };

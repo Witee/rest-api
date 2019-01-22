@@ -2,7 +2,7 @@
   生产环境配置
 */
 
-const config = require('./base');
+import config from './base';
 
 
-module.exports = config;
+export default config;

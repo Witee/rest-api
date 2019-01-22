@@ -10,4 +10,4 @@ const hello = () => async (ctx, next) => {
   await next();
 };
 
-module.exports = { index, hello };
+export { index, hello };

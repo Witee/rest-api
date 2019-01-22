@@ -1,5 +1,5 @@
-const { getModules } = require('../../libs/utils');
+import { getModules } from '../../libs/utils';
 
 const checker = getModules(__dirname);
 
-module.exports = checker;
+export default checker;

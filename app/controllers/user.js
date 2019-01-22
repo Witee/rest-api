@@ -1,8 +1,8 @@
-const checker = require('./checker');
+import checker from './checker';
 
 
 const login = [
   checker.user.login(),
 ];
 
-module.exports = { login };
+export { login };

@@ -2,7 +2,7 @@
   基础的配置
 */
 
-module.exports = {
+export default {
   service: {
     port: 9988,
     listen: '0.0.0.0',

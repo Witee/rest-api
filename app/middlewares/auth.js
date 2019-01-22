@@ -1,5 +1,5 @@
-const _ = require('lodash');
-const configs = require('../configs');
+import _ from 'lodash';
+import configs from '../configs';
 
 const { allowedRequests } = configs;
 
@@ -21,4 +21,4 @@ const auth = async (ctx, next) => {
   }
 };
 
-module.exports = auth;
+export default auth;

@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 
 const login = () => async (ctx, next) => {
@@ -9,6 +9,4 @@ const login = () => async (ctx, next) => {
   }
 };
 
-module.exports = {
-  login,
-};
+export { login };

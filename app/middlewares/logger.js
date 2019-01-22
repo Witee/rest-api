@@ -6,4 +6,4 @@ const logger = async (ctx, next) => {
   console.log(`${ctx.request.ip} ${ctx.request.method} ${ctx.request.url} ${ms}ms...`);
 };
 
-module.exports = logger;
+export default logger;

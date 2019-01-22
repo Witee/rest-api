@@ -1,5 +1,6 @@
-const _ = require('lodash');
-const fs = require('fs');
+import _ from 'lodash';
+import fs from 'fs';
+
 
 /**
   返回目录下所有可导入的模块列表
@@ -44,8 +45,7 @@ const getModules = (path, exts, excludes) => {
   return modules;
 };
 
-
-module.exports = {
+export {
   readdir,
   es6import,
   getModules,
