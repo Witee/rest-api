@@ -1,6 +1,5 @@
 # Don't check auto-generated stuff into git
 coverage
-dist
 test_ui
 node_modules
 stats.json
@@ -10,5 +9,3 @@ stats.json
 npm-debug.log
 .idea
 .vscode
-
-build

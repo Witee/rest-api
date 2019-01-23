@@ -1,24 +1,17 @@
 {
-  "name": "koa-test",
+  "name": "rest-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "jest",
+    "start": "babel-node ./src/index.js",
+    "build": "rm -rf ./dist && babel src -d dist --ignore __tests__"
   },
   "author": "Witee",
   "license": "ISC",
   "dependencies": {
     "apidoc": "^0.17.7",
-    "babel-core": "^6.26.3",
-    "browser-sync": "^2.26.3",
-    "eslint": "^5.5.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.0",
-    "jest": "^23.6.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
@@ -28,24 +21,35 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.13.1"
   },
-  "babel": {
-    "presets": [
-      "env"
-    ],
-    "plugins": [
-      "transform-runtime"
-    ]
-  },
-  "jest": {},
   "apidoc": {
-    "name": "open-js-tools",
-    "title": "open-js-tools 工具库",
+    "name": "rest-api",
+    "title": "rest-api",
     "url": ""
+  },
+  "jest": {
+    "roots": [
+      "src"
+    ],
+    "bail": true,
+    "verbose": true,
+    "collectCoverage": true,
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   }
 }
