@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'rest-api',
-      script: './dev-entry.js',
+      script: 'npx ts-node src/index.ts',
       watch: true,
       env: {
         NODE_ENV: 'development',

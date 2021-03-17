@@ -1,11 +1,4 @@
-# Don't check auto-generated stuff into git
-coverage
-test_ui
-node_modules
-stats.json
-
-# Cruft
+*.log
 .DS_Store
-npm-debug.log
-.idea
-.vscode
+node_modules
+dist

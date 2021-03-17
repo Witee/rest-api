@@ -1,4 +1,6 @@
-const logger = async (ctx, next) => {
+import { Context, Next } from 'koa';
+
+const logger = async (ctx: Context, next: Next) => {
   const start = new Date().getTime();
   await next();
   const ms = new Date().getTime() - start;

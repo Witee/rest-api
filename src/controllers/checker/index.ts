@@ -1,4 +1,4 @@
-import { getModules } from '../../libs/utils';
+import { getModules } from '../../libs';
 
 const checker = getModules(__dirname);
 

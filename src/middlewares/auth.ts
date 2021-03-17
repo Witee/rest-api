@@ -1,23 +1,24 @@
+import { Context, Next } from 'koa';
 import _ from 'lodash';
-import configs from '../configs';
+import config from '../config';
 
-const { allowedRequests } = configs;
+const { allowedRequests } = config;
 
 /**
   通过 IP 判断访问 API 的权限
 */
-const auth = async (ctx, next) => {
-  const { ip } = ctx.request;
+const auth = async (ctx: Context, next: Next) => {
+  const { ip } = ctx;
   if (_.has(allowedRequests, ip)) {
     // const allowedMethod = _.get(allowedRequests, ip, null);
     /**
-      * 号表示允许 ip 访问所有接口
-    */
+     * 号表示允许 ip 访问所有接口
+     */
     // if (allowedMethod === '*') { await next(); }
 
     await next();
   } else {
-    ctx.throw(403, 'Request Forbidden');
+    ctx.throw(403, 'Request Forbidden111');
   }
 };
 

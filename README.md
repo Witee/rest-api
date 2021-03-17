@@ -1,13 +1,13 @@
 # rest-api
-基于 koa2 的 rest api 模版
 
+基于 koa2 的 rest api 模版
 
 > node >= 8
 
 - 项目入口
 
   ```
-    index.js
+    src/index.ts
   ```
 
 - 项目主体目录
@@ -19,10 +19,11 @@
   - `configs` 配置文件
 
   - `controllers` 路由控制器
+
     - `checker` 检查函数，尽可能小，方便复用、测试
 
     > `controllers` 中的函数写法是列表形式，
-    > 在 `routes.js` 中使用  `compose` 函数组合成一个大的中间件，如下:
+    > 在 `routes.ts` 中使用 `compose` 函数组合成一个大的中间件，如下:
 
     ```
     const checker = require('./checker');
@@ -36,7 +37,8 @@
     ```
 
     > index 为列表，其中每一个元素都是检查项
-    > 在 `routers.js` 中使用方法如下:
+    > 在 `routers.ts` 中使用方法如下:
+
     ```
       router.get('/hello', compose(controllers.home.index));
     ```
@@ -49,6 +51,8 @@
 
 - 启动方法
 
-  ```
-    node index.js
+  ```shell
+    pm2 start pm2.config.js
+    // 或
+    npx ts-node src/index.ts
   ```
