@@ -1,8 +1,10 @@
 # rest-api
 
-基于 koa2 的 rest api 模版
+基于 koa2 的 rest api typescript 模版
 
-> node >= 8
+> node >= 10  
+>
+> ts >= 4
 
 - 项目入口
 
@@ -13,10 +15,10 @@
 - 项目主体目录
 
   ```
-    ./app/
+    ./src
   ```
 
-  - `configs` 配置文件
+  - `config.ts` 配置文件
 
   - `controllers` 路由控制器
 
@@ -28,21 +30,19 @@
     ```
     const checker = require('./checker');
 
-    const index = [
+    export const index = [
       checker.user.login(),
       checker.home.hello(),
     ];
-
-    module.exports = { index };
-    ```
-
+```
+    
     > index 为列表，其中每一个元素都是检查项
-    > 在 `routers.ts` 中使用方法如下:
-
+> 在 `routers.ts` 中使用方法如下:
+    
     ```
-      router.get('/hello', compose(controllers.home.index));
+  router.get('/hello', compose(controllers.home.index));
     ```
-
+    
   - `libs` 公共库
 
   - `middlewares` 公共中间件
