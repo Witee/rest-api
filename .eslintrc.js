@@ -1,18 +1,35 @@
 module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
+  },
+  extends: ['airbnb-base'],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      },
+    },
+  },
   rules: {
     'no-console': 1,
-    '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/explicit-function-return-type': 0,
-    'no-shadow': 0,
-    '@typescript-eslint/no-shadow': ['error'],
-    '@typescript-eslint/no-var-requires': 1,
-    '@typescript-eslint/camelcase': 0,
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    '@typescript-eslint/consistent-type-definitions': 0,
-    'no-param-reassign': 0,
-    '@typescript-eslint/no-unused-vars': 0,
-    '@typescript-eslint/no-shadow': 0,
-    '@typescript-eslint/no-empty-interface': 0,
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        mjs: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
 };

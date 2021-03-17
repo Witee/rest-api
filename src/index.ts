@@ -23,4 +23,5 @@ app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(port, listen);
 
+// eslint-disable-next-line
 console.log(`app started at ${listen}:${port}...`);
