@@ -1,6 +1,6 @@
 {
   "name": "rest-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Witee",
   "license": "MIT",
   "main": "dist/index.js",
