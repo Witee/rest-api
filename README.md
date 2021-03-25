@@ -2,57 +2,16 @@
 
 基于 koa2 的 rest api typescript 模版
 
-> node >= 10  
->
-> ts >= 4
+### 解决 tsc 转换为 js 后路径问题
 
-- 项目入口
+直接使用 tsc 转换后, 运行转换后的 js 时会提示 `@/controllers` 之类的路径找不到, 原因是 tsc 没有处理路径问题,
+引入 `module-alias` 就是为了解决这个问题.
 
-  ```
-    src/index.ts
-  ```
-
-- 项目主体目录
-
-  ```
-    ./src
-  ```
-
-  - `config.ts` 配置文件
-
-  - `controllers` 路由控制器
-
-    - `checker` 检查函数，尽可能小，方便复用、测试
-
-    > `controllers` 中的函数写法是列表形式，
-    > 在 `routes.ts` 中使用 `compose` 函数组合成一个大的中间件，如下:
-
-    ```
-    const checker = require('./checker');
-
-    export const index = [
-      checker.user.login(),
-      checker.home.hello(),
-    ];
+在 `src/index.ts` 第一行添加 `import 'module-alias/register';`,
+在 `package.json` 中添加如下配置:
+```json
+"_moduleAliases": {
+    "@": "dist"
+  }
 ```
-    
-    > index 为列表，其中每一个元素都是检查项
-> 在 `routers.ts` 中使用方法如下:
-    
-    ```
-  router.get('/hello', compose(controllers.home.index));
-    ```
-    
-  - `libs` 公共库
-
-  - `middlewares` 公共中间件
-
-  - `routes.js` 路由入口，方便配置
-
-- 启动方法
-
-  ```shell
-    pm2 start pm2.config.js
-    // 或
-    npx ts-node src/index.ts
-  ```
+注意这里的路径别名写的不是 `src` 因为这里需要写转换后的路径, 也就是 `tsconfig.json` 中 `compilerOptions.outDir` 对应的值.
