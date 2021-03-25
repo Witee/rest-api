@@ -10,8 +10,7 @@
     "url": "https://github.com/Witee/rest-api.git"
   },
   "scripts": {
-    "start": "npx ts-node -r tsconfig-paths/register --files src/index.ts",
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
+    "start": "ts-node-dev --respawn --pretty --transpile-only -r tsconfig-paths/register --files src/index.ts"
   },
   "dependencies": {
     "koa": "^2.13.1",
