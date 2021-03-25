@@ -31,9 +31,9 @@ export const getModules = (path: string, ext?: string, exclude?: string) => {
   if (!_.isString(path)) return path;
   if (!fs.existsSync(path)) return modules;
 
-  _.each(readdir(path, ext, exclude), (file) => {
+  _.each(readdir(path, ext, exclude), async (file) => {
     const name = _.camelCase(file);
-    modules[name] = require(`${path}/${file}`);
+    modules[name] = await import(`${path}/${file}`);
   });
 
   return modules;

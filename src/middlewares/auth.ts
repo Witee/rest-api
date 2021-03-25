@@ -18,7 +18,7 @@ const auth = async (ctx: Context, next: Next) => {
 
     await next();
   } else {
-    ctx.throw(403, 'Request Forbidden111');
+    ctx.throw(403, 'Request Forbidden');
   }
 };
 

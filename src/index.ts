@@ -3,21 +3,21 @@ import bodyParser from 'koa-bodyparser';
 
 import config from './config';
 import router from './routes';
-import logger from './middlewares/logger';
-import auth from './middlewares/auth';
+// import logger from './middlewares/logger';
+// import auth from './middlewares/auth';
 
-const env = process.env.NODE_ENV || 'development';
+// const env = process.env.NODE_ENV || 'development';
 
 const app = new Koa();
 const { port, listen } = config.server;
 
-app.use(auth);
+// app.use(auth);
 
 app.use(bodyParser());
 
-if (env === 'development') {
-  app.use(logger);
-}
+// if (env === 'development') {
+//   app.use(logger);
+// }
 
 app.use(router.routes()).use(router.allowedMethods());
 
